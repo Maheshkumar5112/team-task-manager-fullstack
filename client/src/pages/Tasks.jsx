@@ -20,7 +20,7 @@ function Tasks() {
     try {
       setLoading(true);
 
-      const res = await axios.get("http://localhost:5000/api/tasks", {
+      const res = await axios.get("https://dependable-comfort-production-9029.up.railway.app/api/tasks", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -52,7 +52,7 @@ function Tasks() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/tasks",
+        "https://dependable-comfort-production-9029.up.railway.app/api/tasks",
         {
           ...formData,
           status: "todo",
@@ -83,7 +83,7 @@ function Tasks() {
   const markDone = async (id) => {
     try {
       await axios.patch(
-        `http://localhost:5000/api/tasks/${id}`,
+        `https://dependable-comfort-production-9029.up.railway.app/api/tasks/${id}`,
         { status: "done" },
         {
           headers: {

@@ -23,7 +23,7 @@ function Register() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://dependable-comfort-production-9029.up.railway.app/api/auth/register",
         formData
       );
 

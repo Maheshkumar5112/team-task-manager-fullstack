@@ -22,7 +22,7 @@ function Login() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/login",
+        "https://dependable-comfort-production-9029.up.railway.app/api/auth/login",
         formData
       );
 

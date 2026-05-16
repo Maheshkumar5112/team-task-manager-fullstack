@@ -15,7 +15,7 @@ function Dashboard() {
         const token = localStorage.getItem("token");
 
         const res = await axios.get(
-          "http://localhost:5000/api/tasks/dashboard",
+          "https://dependable-comfort-production-9029.up.railway.app/api/tasks/dashboard",
           {
             headers: {
               Authorization: `Bearer ${token}`

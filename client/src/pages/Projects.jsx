@@ -12,7 +12,7 @@ function Projects() {
 
   const fetchProjects = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/projects", {
+      const res = await axios.get("https://dependable-comfort-production-9029.up.railway.app/api/projects", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -40,7 +40,7 @@ function Projects() {
 
     try {
       await axios.post(
-        "http://localhost:5000/api/projects",
+        "https://dependable-comfort-production-9029.up.railway.app/api/projects",
         formData,
         {
           headers: {
