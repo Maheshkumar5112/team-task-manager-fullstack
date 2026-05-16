@@ -7,9 +7,12 @@ const {
   getDashboard
 } = require("../controllers/taskController");
 
-const protect = require("../middleware/authMiddleware");
+const {
+  protect,
+  adminOnly,
+} = require("../middleware/authMiddleware");
 
-router.post("/", protect, createTask);
+router.post("/", protect, adminOnly, createTask);
 router.get("/", protect, getTasks);
 router.get("/dashboard", protect, getDashboard);
 router.patch("/:id", protect, updateTask);

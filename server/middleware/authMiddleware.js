@@ -6,7 +6,7 @@ const protect = (req, res, next) => {
 
     if (!token) {
       return res.status(401).json({
-        message: "No token, unauthorized"
+        message: "No token, unauthorized",
       });
     }
 
@@ -16,13 +16,26 @@ const protect = (req, res, next) => {
     );
 
     req.user = decoded;
-
     next();
   } catch (error) {
     res.status(401).json({
-      message: "Unauthorized"
+      message: "Unauthorized",
     });
   }
 };
 
-module.exports = protect;
+// ADMIN ONLY
+const adminOnly = (req, res, next) => {
+  if (req.user.role !== "admin") {
+    return res.status(403).json({
+      message: "Access denied. Admin only.",
+    });
+  }
+
+  next();
+};
+
+module.exports = {
+  protect,
+  adminOnly,
+};

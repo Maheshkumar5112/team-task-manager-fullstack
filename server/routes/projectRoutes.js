@@ -5,9 +5,12 @@ const {
   getProjects
 } = require("../controllers/projectController");
 
-const protect = require("../middleware/authMiddleware");
+const {
+  protect,
+  adminOnly,
+} = require("../middleware/authMiddleware");
 
-router.post("/", protect, createProject);
+router.post("/", protect, adminOnly, createProject);
 router.get("/", protect, getProjects);
 
 module.exports = router;
